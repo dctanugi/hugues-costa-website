@@ -17,12 +17,11 @@ description: "A memorial collection of photographs by Hugues Costa from India an
           alt=gallery.title,
           className="gallery-card__image",
           gallerySlug=gallery.slug,
-          sizes="(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 50vw",
+          sizes="(min-width: 768px) 33vw, 50vw",
           loading="eager"
         %}
         <div class="gallery-card__overlay">
           <h2>{{ gallery.title }}</h2>
-          <p>{{ gallery.location }}{% if gallery.imageCount %} &middot; {{ gallery.imageCount }} photos{% endif %}</p>
         </div>
       </a>
     </li>

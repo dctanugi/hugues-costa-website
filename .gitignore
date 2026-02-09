@@ -3,3 +3,5 @@ _site/
 src/_includes/css/
 .cache/
 *.css.map
+*.png
+*.jpg

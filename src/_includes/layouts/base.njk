@@ -17,10 +17,6 @@
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
 
-  {% if useSwiper %}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  {% endif %}
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,8 +40,7 @@
 
   {% include "components/footer.njk" %}
 
-  {% if useSwiper %}
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  {% if useGalleryJs %}
   <script src="/js/gallery.js"></script>
   {% endif %}
 </body>

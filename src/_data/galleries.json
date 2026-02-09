@@ -1,22 +1,49 @@
 {
   "galleries": [
     {
-      "slug": "varanasi",
+      "slug": "portraits",
       "order": 1,
-      "coverImage": "",
-      "title": "Varanasi",
-      "description": "Along the sacred ghats of the Ganges",
+      "coverImage": "Portraits_184.png",
+      "title": "Portraits",
+      "description": "Humans of India and Nepal",
       "date": "1980",
-      "location": "Varanasi, India"
+      "location": "India and Nepal"
     },
     {
-      "slug": "kathmandu",
+      "slug": "nepal",
       "order": 2,
-      "coverImage": "",
-      "title": "Kathmandu",
+      "coverImage": "Hugues_37.png",
+      "title": "Nepal",
       "description": "Temples, markets, and mountain light in Nepal's capital",
       "date": "1981",
       "location": "Kathmandu, Nepal"
-    }
+    },
+    {
+      "slug": "rajasthan",
+      "order": 3,
+      "coverImage": "Hugues_279.png",
+      "title": "Rajasthan",
+      "description": "The famous Pushkar Camel Fair in Rajasthan",
+      "date": "1981",
+      "location": "Rajasthan, India"
+    },
+    {
+      "slug": "ladakh",
+      "order": 4,
+      "coverImage": "Ladakh_14.png",
+      "title": "Ladakh",
+      "description": "Ladakh, the 'little Tibet' in the Indian Himalayas",
+      "date": "1981",
+      "location": "Ladakh, India"
+    },
+    {
+      "slug": "varanasi",
+      "order": 5,
+      "coverImage": "Hugues_713.png",
+      "title": "Varanasi",
+      "description": "The holy city of Varanasi on the banks of the Ganges",
+      "date": "1981",
+      "location": "Varanasi, India"
+    }    
   ]
 }

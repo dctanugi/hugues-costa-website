@@ -2,14 +2,13 @@
 @use "../mixins" as *;
 
 .gallery-detail {
-  max-width: $max-width;
   margin: 0 auto;
-  padding: $spacing-md $spacing-sm;
+  padding: $spacing-sm;
 }
 
 .gallery-header {
   text-align: center;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-md;
 
   h1 {
     font-family: $font-serif;
@@ -33,39 +32,24 @@
   }
 }
 
-.gallery-swiper {
-  margin-bottom: $spacing-sm;
-  border-radius: 2px;
-  overflow: hidden;
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $color-bg-alt;
-  }
-
-  img {
-    max-height: 80vh;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    margin: 0 auto;
-  }
+.masonry-grid {
+  position: relative;
+  width: 100%;
 }
 
-.gallery-counter {
-  text-align: center;
-  font-family: $font-sans;
-  font-size: 0.85rem;
-  color: $color-text-light;
-  letter-spacing: 0.05em;
-  padding: $spacing-xs 0;
+.masonry-item {
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .gallery-back {
   text-align: center;
-  padding: $spacing-sm 0 $spacing-md;
+  padding: $spacing-md 0;
 
   a {
     font-size: 0.9rem;

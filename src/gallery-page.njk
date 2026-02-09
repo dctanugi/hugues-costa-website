@@ -23,31 +23,22 @@ eleventyComputed:
     </p>
   </div>
 
-  <div class="swiper gallery-swiper">
-    <div class="swiper-wrapper">
-      {% for image in gallery.images %}
-      <div class="swiper-slide">
-        {% img
-          src=image,
-          alt=gallery.title + " — " + (loop.index | string),
-          className="swiper-image",
-          gallerySlug=gallery.slug,
-          sizes="(min-width: 1024px) 80vw, 95vw",
-          widths=[600, 900, 1200, 1800]
-        %}
-      </div>
-      {% endfor %}
+  <div class="masonry-grid">
+    {% for image in gallery.images %}
+    <div class="masonry-item">
+      {% img
+        src=image,
+        alt=gallery.title + " — " + (loop.index | string),
+        className="masonry-img",
+        gallerySlug=gallery.slug,
+        sizes="(min-width: 768px) 33vw, 50vw",
+        widths=[400, 600, 900, 1200]
+      %}
     </div>
-
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-
-  <div class="gallery-counter">
-    <span class="current-slide">1</span> / {{ gallery.imageCount }}
+    {% endfor %}
   </div>
 
   <div class="gallery-back">
-    <a href="/galleries/">&larr; All Galleries</a>
+    <a href="/">&larr; Home</a>
   </div>
 </div>
