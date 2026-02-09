@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ lang or site.lang or 'en' }}" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if pageTitle %}{{ pageTitle }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+
+  <meta property="og:title" content="{{ pageTitle or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  {% if site.url %}<meta property="og:url" content="{{ site.url }}{{ page.url }}">{% endif %}
+  {% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+
+  {% set css %}
+    {% include "css/style.css" %}
+  {% endset %}
+  <style>{{ css | cssmin | safe }}</style>
+
+  {% if useSwiper %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  {% endif %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "{{ pageTitle or site.title }}",
+    "description": "{{ description or site.description }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  {% include "components/header.njk" %}
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  {% include "components/footer.njk" %}
+
+  {% if useSwiper %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/js/gallery.js"></script>
+  {% endif %}
+</body>
+</html>

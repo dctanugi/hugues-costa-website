@@ -1,0 +1,92 @@
+@use "vars" as *;
+@use "mixins" as *;
+@use "partials";
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $color-bg;
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $color-text;
+}
+
+main {
+  flex: 1;
+}
+
+.sr-only {
+  @include visually-hidden();
+}
+
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-10rem);
+  transition: transform 0.3s ease-in-out;
+  padding: $spacing-xs;
+  background: $color-white;
+  color: $color-heading;
+  z-index: 999;
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $font-serif;
+  color: $color-heading;
+  font-weight: 400;
+}
+
+.home-hero {
+  text-align: center;
+  padding: $spacing-xl $spacing-md $spacing-lg;
+
+  h1 {
+    font-size: clamp(2.2rem, 7vw, 3.5rem);
+    letter-spacing: 0.02em;
+    margin-bottom: $spacing-xs;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: $color-text-light;
+    font-style: italic;
+  }
+}
+
+.page-header {
+  text-align: center;
+  padding: $spacing-lg $spacing-md $spacing-md;
+
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+}

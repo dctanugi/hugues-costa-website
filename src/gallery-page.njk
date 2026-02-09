@@ -1,0 +1,53 @@
+---
+layout: gallery.njk
+pagination:
+  data: collections.galleries
+  size: 1
+  alias: gallery
+permalink: "/galleries/{{ gallery.slug }}/"
+eleventyComputed:
+  pageTitle: "{{ gallery.title }}"
+  description: "{{ gallery.description }}"
+---
+
+<div class="gallery-detail">
+  <div class="gallery-header">
+    <h1>{{ gallery.title }}</h1>
+    {% if gallery.description %}
+    <p class="gallery-description">{{ gallery.description }}</p>
+    {% endif %}
+    <p class="gallery-meta">
+      {% if gallery.location %}{{ gallery.location }}{% endif %}
+      {% if gallery.date %} &middot; {{ gallery.date }}{% endif %}
+      &middot; {{ gallery.imageCount }} photographs
+    </p>
+  </div>
+
+  <div class="swiper gallery-swiper">
+    <div class="swiper-wrapper">
+      {% for image in gallery.images %}
+      <div class="swiper-slide">
+        {% img
+          src=image,
+          alt=gallery.title + " — " + (loop.index | string),
+          className="swiper-image",
+          gallerySlug=gallery.slug,
+          sizes="(min-width: 1024px) 80vw, 95vw",
+          widths=[600, 900, 1200, 1800]
+        %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="gallery-counter">
+    <span class="current-slide">1</span> / {{ gallery.imageCount }}
+  </div>
+
+  <div class="gallery-back">
+    <a href="/galleries/">&larr; All Galleries</a>
+  </div>
+</div>

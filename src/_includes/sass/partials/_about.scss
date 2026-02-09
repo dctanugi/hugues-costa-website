@@ -1,0 +1,22 @@
+@use "../vars" as *;
+
+.about-content {
+  max-width: $max-width-text;
+  margin: $spacing-lg auto;
+  padding: 0 $spacing-md;
+
+  h1 {
+    font-family: $font-serif;
+    font-weight: 400;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: $color-heading;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: $color-text;
+    margin-bottom: $spacing-sm;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "hugues-costa-memorial-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Memorial photo portfolio - Hugues Costa, India & Nepal 1980-1981",
+  "scripts": {
+    "build": "npm-run-all build:sass build:eleventy",
+    "dev": "npm-run-all --parallel watch:*",
+    "build:eleventy": "npx @11ty/eleventy",
+    "watch:eleventy": "npx @11ty/eleventy --serve",
+    "build:sass": "sass src/_includes/sass/style.scss:src/_includes/css/style.css --style=compressed",
+    "watch:sass": "sass --watch src/_includes/sass/style.scss:src/_includes/css/style.css",
+    "clean": "rm -rf _site .cache"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "clean-css": "^5.3.3",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.77.0",
+    "terser": "^5.31.0"
+  }
+}

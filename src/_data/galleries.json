@@ -1,0 +1,22 @@
+{
+  "galleries": [
+    {
+      "slug": "varanasi",
+      "order": 1,
+      "coverImage": "",
+      "title": "Varanasi",
+      "description": "Along the sacred ghats of the Ganges",
+      "date": "1980",
+      "location": "Varanasi, India"
+    },
+    {
+      "slug": "kathmandu",
+      "order": 2,
+      "coverImage": "",
+      "title": "Kathmandu",
+      "description": "Temples, markets, and mountain light in Nepal's capital",
+      "date": "1981",
+      "location": "Kathmandu, Nepal"
+    }
+  ]
+}

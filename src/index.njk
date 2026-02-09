@@ -1,0 +1,32 @@
+---
+layout: home.njk
+heading: "Hugues Costa"
+subheading: "India & Nepal, 1980-1981"
+pageTitle: Home
+description: "A memorial collection of photographs by Hugues Costa from India and Nepal, 1980-1981"
+---
+
+<section class="galleries-section">
+  <ul class="gallery-grid">
+    {% for gallery in collections.galleries %}
+    {% if gallery.coverImage %}
+    <li class="gallery-card">
+      <a href="/galleries/{{ gallery.slug }}/" aria-label="{{ gallery.title }} — {{ gallery.imageCount }} photographs">
+        {% img
+          src=gallery.coverImage,
+          alt=gallery.title,
+          className="gallery-card__image",
+          gallerySlug=gallery.slug,
+          sizes="(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 50vw",
+          loading="eager"
+        %}
+        <div class="gallery-card__overlay">
+          <h2>{{ gallery.title }}</h2>
+          <p>{{ gallery.location }}{% if gallery.imageCount %} &middot; {{ gallery.imageCount }} photos{% endif %}</p>
+        </div>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</section>
