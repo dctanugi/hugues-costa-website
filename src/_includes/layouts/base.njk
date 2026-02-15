@@ -17,6 +17,10 @@
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
 
+  {% if useGalleryJs %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.css">
+  {% endif %}
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,6 +45,12 @@
   {% include "components/footer.njk" %}
 
   {% if useGalleryJs %}
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+    import PhotoSwipe from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.js';
+    window.PhotoSwipeLightbox = PhotoSwipeLightbox;
+    window.PhotoSwipe = PhotoSwipe;
+  </script>
   <script src="/js/gallery.js"></script>
   {% endif %}
 </body>

@@ -19,9 +19,18 @@
       "location": "Kathmandu, Nepal"
     },
     {
-      "slug": "rajasthan",
+      "slug": "kerala",
       "order": 3,
-      "coverImage": "Hugues_279.png",
+      "coverImage": "Hugues_Costa_Kerala-17.png",
+      "title": "Kerala",
+      "description": "Seaside scenes and temple festivals",
+      "date": "1981",
+      "location": "Kerala, India"
+    },
+    {
+      "slug": "rajasthan",
+      "order": 4,
+      "coverImage": "Hugues_Costa_Rajasthan-30.png",
       "title": "Rajasthan",
       "description": "The famous Pushkar Camel Fair in Rajasthan",
       "date": "1981",
@@ -29,8 +38,8 @@
     },
     {
       "slug": "ladakh",
-      "order": 4,
-      "coverImage": "Ladakh_14.png",
+      "order": 5,
+      "coverImage": "Hugues_Costa_Ladakh-14.png",
       "title": "Ladakh",
       "description": "Ladakh, the 'little Tibet' in the Indian Himalayas",
       "date": "1981",
@@ -38,7 +47,7 @@
     },
     {
       "slug": "varanasi",
-      "order": 5,
+      "order": 6,
       "coverImage": "Hugues_713.png",
       "title": "Varanasi",
       "description": "The holy city of Varanasi on the banks of the Ganges",

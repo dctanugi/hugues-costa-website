@@ -3,5 +3,13 @@ _site/
 src/_includes/css/
 .cache/
 *.css.map
-*.png
-*.jpg
+src/images/
+
+# Don't track Eleventy output (except generated images - see below)
+_site/
+!_site/images/
+
+# Don't track most build output
+_site/
+node_modules/
+.sass-cache/
