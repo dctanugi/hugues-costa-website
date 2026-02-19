@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
       pswpModule: window.PhotoSwipe,
       arrowKeys: true,
       closeOnVerticalDrag: true,
+      zoom: false,
       dataSource: galleryData
     });
 

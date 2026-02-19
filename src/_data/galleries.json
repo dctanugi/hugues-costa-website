@@ -3,10 +3,10 @@
     {
       "slug": "portraits",
       "order": 1,
-      "coverImage": "Portraits_109.png",
+      "coverImage": "Portraits_289.png",
       "title": "Portraits",
-      "description": "Humans of India and Nepal",
-      "date": "1980",
+      "description": "Hugues had a gift for capturing the essence of his subjects.",
+      "date": "1980-1981",
       "location": "India and Nepal"
     },
     {
@@ -14,9 +14,9 @@
       "order": 2,
       "coverImage": "Hugues_Costa_Nepal-25.png",
       "title": "Nepal",
-      "description": "Temples, markets, and mountain light in Nepal's capital",
-      "date": "1981",
-      "location": "Kathmandu, Nepal"
+      "description": "Temples, markets, and mountain light in Nepal",
+      "date": "1980-1981",
+      "location": "Nepal"
     },
     {
       "slug": "kerala",

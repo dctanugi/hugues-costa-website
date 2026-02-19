@@ -3,5 +3,9 @@
   "description": "A memorial collection of photographs by Hugues Costa, taken during his travels through India and Nepal in 1980-1981",
   "url": "",
   "author": "Hugues Costa",
-  "lang": "en"
+  "lang": "en",
+  "watermark": {
+    "enabled": true,
+    "text": "© 2026 — Estate of Hugues Costa"
+  }
 }
