@@ -4,6 +4,7 @@ src/_includes/css/
 .cache/
 *.css.map
 src/images/
+*.DS_Store
 
 # Don't track Eleventy output (except generated images - see below)
 _site/
