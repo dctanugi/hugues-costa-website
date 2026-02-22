@@ -78,7 +78,7 @@ For any inquiries, please contact the repository owner at `dctanugi` on GitHub.
 
 ## Modifying Photo Galleries
 
-The photo galleries on the website can be customized by editing the `galleries.json` file and managing the images in the `/src/img/` directory.
+The photo galleries on the website can be customized by editing the `galleries.json` file and managing the images in the `/src/images/` directory.
 
 ### Editing `galleries.json`
 
@@ -95,7 +95,7 @@ To add a new gallery:
 
 ### Managing Images
 
-Images for the galleries are stored in the `/src/img/` directory. Each gallery has its own subfolder (e.g., `/src/img/kerala/`, `/src/img/ladakh/`).
+Images for the galleries are stored in the `/src/images/` directory. Each gallery has its own subfolder (e.g., `/src/images/kerala/`, `/src/img/ladakh/`).
 
 To add images to a gallery:
 1. Place the image files in the corresponding gallery's folder.
