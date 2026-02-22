@@ -3,6 +3,10 @@
 
 .galleries-section {
   padding: $spacing-sm;
+
+  .gallery-grid {
+    gap: 0;
+  }
 }
 
 .gallery-grid {
@@ -15,6 +19,10 @@
   }
 
   @include respond-to(sm) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: $bp-md) and (orientation: portrait) {
     grid-template-columns: 1fr;
   }
 }

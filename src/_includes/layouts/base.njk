@@ -34,7 +34,7 @@
   }
   </script>
 </head>
-<body>
+<body{% if useGalleryJs %} class="page-gallery"{% endif %}>
   <a href="#main" class="skip-link">Skip to main content</a>
   {% include "components/header.njk" %}
 

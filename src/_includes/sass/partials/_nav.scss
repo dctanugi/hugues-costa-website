@@ -5,6 +5,12 @@
   padding: $spacing-sm $spacing-md;
   border-bottom: 1px solid $color-border;
   background: $color-bg;
+
+  .page-gallery & {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 }
 
 .header-inner {

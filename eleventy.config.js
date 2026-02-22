@@ -56,7 +56,7 @@ export default async function (eleventyConfig) {
 
     const metadata = await Image(imgPath, {
       widths: widths || [300, 600, 900, 1200],
-      formats: ["webp", "jpeg"],
+      formats: ["webp"],
       urlPath: "/img/",
       outputDir: ".cache/@11ty/img/",
       filenameFormat: function (id, src, width, format) {
@@ -67,8 +67,8 @@ export default async function (eleventyConfig) {
       },
     });
 
-    const lowsrc = metadata.jpeg[0];
-    const highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+    const lowsrc = metadata.webp[0];
+    const highsrc = metadata.webp[metadata.webp.length - 1];
 
     const sources = Object.values(metadata)
       .map((imageFormat) => {
@@ -176,7 +176,7 @@ ${sources}
     // Find all 1200w images in output
     const files = fs
       .readdirSync(outputDir)
-      .filter((f) => f.includes("-1200w.") && /\.(jpeg|webp)$/.test(f));
+      .filter((f) => f.includes("-1200w.") && f.endsWith(".webp"));
 
     console.log(`[watermark] Applying watermark to ${files.length} images...`);
 
