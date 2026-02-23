@@ -12,7 +12,7 @@
     {
       "slug": "nepal",
       "order": 2,
-      "coverImage": "Hugues_Costa_Nepal-25.png",
+      "coverImage": "Hugues_Costa_Nepal-12.png",
       "title": "Nepal",
       "description": "Temples, markets, and mountain light in Nepal",
       "date": "1980-1981",
@@ -32,14 +32,14 @@
       "order": 4,
       "coverImage": "Hugues_Costa_Rajasthan-30.png",
       "title": "Rajasthan",
-      "description": "The famous Pushkar Camel Fair in Rajasthan",
+      "description": "The famous Pushkar Camel Fair and ritual bathing at the sacred Pushkar Lake in Rajasthan",
       "date": "1981",
       "location": "Rajasthan, India"
     },
     {
       "slug": "ladakh",
       "order": 5,
-      "coverImage": "Hugues_Costa_Ladakh-14.png",
+      "coverImage": "Hugues_Costa_Ladakh-25.png",
       "title": "Ladakh",
       "description": "Ladakh, the 'little Tibet' in the Indian Himalayas",
       "date": "1981",
@@ -48,7 +48,7 @@
     {
       "slug": "varanasi",
       "order": 6,
-      "coverImage": "Hugues_713.png",
+      "coverImage": "Hugues_Costa_Varanasi-5.png",
       "title": "Varanasi",
       "description": "The holy city of Varanasi on the banks of the Ganges",
       "date": "1981",

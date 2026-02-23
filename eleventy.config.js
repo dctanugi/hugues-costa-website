@@ -17,6 +17,7 @@ function escapeXml(str) {
 export default async function (eleventyConfig) {
   // --- Passthrough copies ---
   eleventyConfig.addPassthroughCopy("./src/js");
+  eleventyConfig.addPassthroughCopy({ "./src/images/og-image.png": "img/og-image.png" });
 
   // --- Filters ---
   eleventyConfig.addFilter("cssmin", (code) => {

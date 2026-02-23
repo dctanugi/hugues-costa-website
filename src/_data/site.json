@@ -1,7 +1,8 @@
 {
   "title": "Hugues Costa",
   "description": "A memorial collection of photographs by Hugues Costa, taken during his travels through India and Nepal in 1980-1981",
-  "url": "",
+  "url": "https://www.huguescosta.com",
+  "ogImage": "/img/og-image.png",
   "author": "Hugues Costa",
   "lang": "en",
   "watermark": {

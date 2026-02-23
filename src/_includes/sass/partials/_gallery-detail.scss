@@ -61,3 +61,56 @@
     }
   }
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: $spacing-md;
+  right: $spacing-md;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  color: $color-text-light;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: $color-heading;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @include respond-to(sm) {
+    bottom: $spacing-sm;
+    right: $spacing-sm;
+    width: 44px;
+    height: 44px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

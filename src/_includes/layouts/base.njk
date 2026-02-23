@@ -10,7 +10,23 @@
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:type" content="website">
   {% if site.url %}<meta property="og:url" content="{{ site.url }}{{ page.url }}">{% endif %}
-  {% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or site.ogImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle or site.title }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ ogImage or site.ogImage }}">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q31YWFCSTV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q31YWFCSTV');
+  </script>
 
   {% set css %}
     {% include "css/style.css" %}

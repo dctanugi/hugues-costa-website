@@ -11,7 +11,7 @@ This repository contains the source code for the photography portfolio website o
     - `components/`: Reusable components like `header.njk` and `footer.njk`.
     - `layouts/`: Layout templates for pages.
     - `sass/`: SCSS files for styling, organized into mixins, partials, and variables.
-- **Static Assets**: Located in the `img/` and `js/` directories.
+- **Static Assets**: Located in the `src/images/` and `src/js/` directories (processed to `_site/img/` and `_site/js/` during build).
 - **Build Output**: The `_site/` directory contains the generated static files after the build process.
 
 ## Development
@@ -60,9 +60,8 @@ The site is hosted on [Netlify](https://www.netlify.com/) under the username `dc
 
 ### Deployment Steps
 
-1. Push changes to the `main` branch of this repository.
-2. Netlify will automatically detect the changes and trigger a new build.
-3. The updated site will be deployed to [www.huguescosta.com](https://www.huguescosta.com).
+1. Deploy to Netlify using the following command `netlify deploy --prod`
+2. The updated site will be deployed to [www.huguescosta.com](https://www.huguescosta.com).
 
 ### Domain Management
 
@@ -87,7 +86,7 @@ The `galleries.json` file, located in the `src/_data/` directory, contains metad
 - `title`: The title of the gallery.
 - `slug`: The URL-friendly identifier for the gallery.
 - `description`: A short description of the gallery.
-- `images`: An array of image filenames (relative to the gallery's folder in `/src/img/`).
+- `images`: An array of image filenames (relative to the gallery's folder in `/src/images/`).
 
 To add a new gallery:
 1. Add a new object to the `galleries.json` file with the required properties.
@@ -95,7 +94,7 @@ To add a new gallery:
 
 ### Managing Images
 
-Images for the galleries are stored in the `/src/images/` directory. Each gallery has its own subfolder (e.g., `/src/images/kerala/`, `/src/img/ladakh/`).
+Images for the galleries are stored in the `/src/images/` directory. Each gallery has its own subfolder (e.g., `/src/images/kerala/`, `/src/images/ladakh/`).
 
 To add images to a gallery:
 1. Place the image files in the corresponding gallery's folder.

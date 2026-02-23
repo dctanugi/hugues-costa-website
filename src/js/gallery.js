@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Back to top button functionality
+  const backToTopBtn = document.querySelector(".back-to-top");
+  if (backToTopBtn) {
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", function () {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add("visible");
+      } else {
+        backToTopBtn.classList.remove("visible");
+      }
+    });
+
+    // Scroll to top when clicked
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
   const grid = document.querySelector(".masonry-grid");
   if (!grid) return;
 
@@ -6,7 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
   var loadedImages = new Set();
 
   function getColumnCount() {
-    return window.innerWidth >= 768 ? 3 : 2;
+    const width = window.innerWidth;
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+    if (width >= 768) {
+      return 3;
+    } else if (width < 768 && isPortrait) {
+      return 1;
+    } else if (width < 480) {
+      return 1;
+    } else {
+      return 2;
+    }
   }
 
   function layout() {
