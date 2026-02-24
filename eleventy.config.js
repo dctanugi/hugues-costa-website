@@ -151,12 +151,18 @@ ${sources}
   });
 
   // --- Copy cached images to output after build, optionally watermark 1200w ---
-  eleventyConfig.on("eleventy.after", async () => {
+  eleventyConfig.on("eleventy.after", async ({ runMode }) => {
     const cacheDir = ".cache/@11ty/img/";
     const outputDir = path.join("_site", "img");
 
     if (fs.existsSync(cacheDir)) {
       fs.cpSync(cacheDir, outputDir, { recursive: true });
+    }
+
+    // Skip watermarking in dev/serve mode for faster builds
+    if (runMode === "serve" || runMode === "watch") {
+      console.log("[watermark] Skipped in dev mode for faster builds");
+      return;
     }
 
     // Read watermark config
