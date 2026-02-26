@@ -13,6 +13,18 @@
     margin-bottom: $spacing-md;
   }
 
+  .about-photo {
+    display: block;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 0 $spacing-md;
+    border-radius: 4px;
+
+    @media (max-width: 600px) {
+      max-width: 400px;
+    }
+  }
+
   p {
     font-size: 1.05rem;
     line-height: 1.7;
