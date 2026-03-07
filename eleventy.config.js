@@ -153,14 +153,16 @@ ${sources}
   // --- Copy cached images to output after build, optionally watermark 900w/1200w ---
   eleventyConfig.on("eleventy.after", async ({ runMode }) => {
     const cacheDir = ".cache/@11ty/img/";
+    const watermarkCacheDir = ".cache/watermarked/";
     const outputDir = path.join("_site", "img");
 
-    if (fs.existsSync(cacheDir)) {
-      fs.cpSync(cacheDir, outputDir, { recursive: true });
-    }
+    if (!fs.existsSync(cacheDir)) return;
+
+    fs.mkdirSync(outputDir, { recursive: true });
 
     // Skip watermarking in dev/serve mode for faster builds
     if (runMode === "serve" || runMode === "watch") {
+      fs.cpSync(cacheDir, outputDir, { recursive: true });
       console.log("[watermark] Skipped in dev mode for faster builds");
       return;
     }
@@ -170,29 +172,66 @@ ${sources}
     try {
       siteData = JSON.parse(fs.readFileSync("./src/_data/site.json", "utf-8"));
     } catch {
+      fs.cpSync(cacheDir, outputDir, { recursive: true });
       return;
     }
 
     if (!siteData.watermark?.enabled) {
+      fs.cpSync(cacheDir, outputDir, { recursive: true });
       return;
     }
+
+    fs.mkdirSync(watermarkCacheDir, { recursive: true });
 
     const watermarkText =
       siteData.watermark.text || "© 2026 — Estate of Hugues Costa";
 
-    // Find all 900w and 1200w images in output
-    const files = fs
-      .readdirSync(outputDir)
-      .filter((f) => (f.includes("-900w.") || f.includes("-1200w.")) && f.endsWith(".webp"));
+    const allFiles = fs.readdirSync(cacheDir);
+    const needsWatermark = (f) =>
+      (f.includes("-900w.") || f.includes("-1200w.")) && f.endsWith(".webp");
 
-    console.log(`[watermark] Applying watermark to ${files.length} images...`);
+    // Copy non-watermarked files (300w, 600w) directly to output
+    for (const file of allFiles) {
+      if (!needsWatermark(file)) {
+        fs.copyFileSync(path.join(cacheDir, file), path.join(outputDir, file));
+      }
+    }
+
+    // For watermark candidates, check if a cached watermarked version is up-to-date
+    const watermarkFiles = allFiles.filter(needsWatermark);
+    const toProcess = [];
+
+    for (const file of watermarkFiles) {
+      const srcPath = path.join(cacheDir, file);
+      const cachedPath = path.join(watermarkCacheDir, file);
+
+      if (fs.existsSync(cachedPath)) {
+        const srcMtime = fs.statSync(srcPath).mtimeMs;
+        const cachedMtime = fs.statSync(cachedPath).mtimeMs;
+
+        if (cachedMtime >= srcMtime) {
+          // Watermarked version is up-to-date, copy from cache
+          fs.copyFileSync(cachedPath, path.join(outputDir, file));
+          continue;
+        }
+      }
+
+      toProcess.push(file);
+    }
+
+    if (toProcess.length === 0) {
+      console.log(`[watermark] All ${watermarkFiles.length} images up to date, nothing to process.`);
+      return;
+    }
+
+    console.log(`[watermark] Processing ${toProcess.length} of ${watermarkFiles.length} images (${watermarkFiles.length - toProcess.length} cached)...`);
 
     const BATCH_SIZE = 20;
-    for (let i = 0; i < files.length; i += BATCH_SIZE) {
-      const batch = files.slice(i, i + BATCH_SIZE);
+    for (let i = 0; i < toProcess.length; i += BATCH_SIZE) {
+      const batch = toProcess.slice(i, i + BATCH_SIZE);
       await Promise.all(
         batch.map(async (file) => {
-          const filePath = path.join(outputDir, file);
+          const filePath = path.join(cacheDir, file);
           try {
             const metadata = await sharp(filePath).metadata();
             const width = metadata.width;
@@ -230,7 +269,9 @@ ${sources}
                 ? await sharp(watermarked).webp({ quality: 80 }).toBuffer()
                 : await sharp(watermarked).jpeg({ quality: 80 }).toBuffer();
 
-            fs.writeFileSync(filePath, output);
+            // Save to both watermark cache and output
+            fs.writeFileSync(path.join(watermarkCacheDir, file), output);
+            fs.writeFileSync(path.join(outputDir, file), output);
           } catch (err) {
             console.error(
               `[watermark] Failed to watermark ${file}:`,
