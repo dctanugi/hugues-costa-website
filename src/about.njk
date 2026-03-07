@@ -35,4 +35,42 @@ description: "About Hugues Costa and this memorial photo collection"
     his work with the world, so that the beauty he captured might endure.
   </p>
 
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
+    <p>
+      If you have questions about this collection, knew Hugues, or would like to inquire
+      about the photographs, please reach out using the form below.
+    </p>
+
+    <form
+      name="contact"
+      method="POST"
+      action="/contact-success/"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      class="contact-form"
+    >
+      <p class="sr-only">
+        <label>Do not fill this in if you are human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+
+      <div class="form-field">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" name="name" required autocomplete="name">
+      </div>
+
+      <div class="form-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" required autocomplete="email">
+      </div>
+
+      <div class="form-field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="contact-submit">Send</button>
+    </form>
+  </section>
+
 </div>

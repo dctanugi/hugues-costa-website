@@ -150,7 +150,7 @@ ${sources}
     return galleries;
   });
 
-  // --- Copy cached images to output after build, optionally watermark 1200w ---
+  // --- Copy cached images to output after build, optionally watermark 900w/1200w ---
   eleventyConfig.on("eleventy.after", async ({ runMode }) => {
     const cacheDir = ".cache/@11ty/img/";
     const outputDir = path.join("_site", "img");
@@ -180,10 +180,10 @@ ${sources}
     const watermarkText =
       siteData.watermark.text || "© 2026 — Estate of Hugues Costa";
 
-    // Find all 1200w images in output
+    // Find all 900w and 1200w images in output
     const files = fs
       .readdirSync(outputDir)
-      .filter((f) => f.includes("-1200w.") && f.endsWith(".webp"));
+      .filter((f) => (f.includes("-900w.") || f.includes("-1200w.")) && f.endsWith(".webp"));
 
     console.log(`[watermark] Applying watermark to ${files.length} images...`);
 
@@ -198,7 +198,7 @@ ${sources}
             const width = metadata.width;
             const height = metadata.height;
 
-            const fontSize = Math.round(width * 0.012);
+            const fontSize = Math.round(width * 0.022);
             const padding = Math.round(width * 0.015);
 
             // Dual-text SVG: dark shadow underneath, white text on top
@@ -209,14 +209,14 @@ ${sources}
                   y="${height - padding + 1}"
                   font-family="Arial, Helvetica, sans-serif"
                   font-size="${fontSize}px"
-                  fill="rgba(0, 0, 0, 0.4)"
+                  fill="rgba(0, 0, 0, 0.6)"
                 >${escapeXml(watermarkText)}</text>
                 <text
                   x="${padding}"
                   y="${height - padding}"
                   font-family="Arial, Helvetica, sans-serif"
                   font-size="${fontSize}px"
-                  fill="rgba(255, 255, 255, 0.6)"
+                  fill="rgba(255, 255, 255, 0.8)"
                 >${escapeXml(watermarkText)}</text>
               </svg>`;
 
